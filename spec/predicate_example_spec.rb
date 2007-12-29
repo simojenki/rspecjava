@@ -1,14 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
-
-class BddFramework
-  def intuitive?
-    true
-  end
-  
-  def adopted_quickly?
-    true
-  end
-end
+require File.dirname(__FILE__) + '/../lib/predicate'
 
 describe "BDD framework" do
 

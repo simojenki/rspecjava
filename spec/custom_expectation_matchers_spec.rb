@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/../lib/custom_expectation'
+
 module AnimalSpecHelper
   class Eat
     def initialize(food)
@@ -24,17 +26,6 @@ module AnimalSpecHelper
 end
 
 module Animals
-  class Animal
-    def eats?(food)
-      return foods_i_eat.include?(food)
-    end
-  end
-  
-  class Mouse < Animal
-    def foods_i_eat
-      [:cheese]
-    end
-  end
 
   describe Mouse do
     include AnimalSpecHelper

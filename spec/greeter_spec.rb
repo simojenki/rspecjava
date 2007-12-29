@@ -1,4 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/../lib/greeter'
+
 # greeter.rb
 #
 # Based on http://glu.ttono.us/articles/2006/12/19/tormenting-your-tests-with-heckle
@@ -7,15 +9,6 @@ require File.dirname(__FILE__) + '/spec_helper'
 #
 #   spec greeter_spec.rb --heckle Greeter
 #
-class Greeter
-  def initialize(person = nil)
-    @person = person
-  end
-
-  def greet
-    @person.nil? ? "Hi there!" : "Hi #{@person}!"
-  end
-end
 
 describe "Greeter" do
   it "should say Hi to person" do

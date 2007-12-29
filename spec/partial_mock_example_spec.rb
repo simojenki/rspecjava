@@ -1,10 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/../lib/partial_mock'
 
-class MockableClass
-  def self.find id
-    return :original_return
-  end
-end
 
 describe "A partial mock" do
 

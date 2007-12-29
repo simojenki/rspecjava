@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/../lib/behave_as'
 
 def behave_as_electric_musician
   respond_to(:read_notes, :turn_down_amp)
@@ -9,20 +10,6 @@ def behave_as_musician
 end
 
 module BehaveAsExample
-  
-  class BluesGuitarist
-    def read_notes; end
-    def turn_down_amp; end
-  end
-  
-  class RockGuitarist
-    def read_notes; end
-    def turn_down_amp; end
-  end
-  
-  class ClassicGuitarist
-    def read_notes; end
-  end
   
   describe BluesGuitarist do
     it "should behave as guitarist" do

@@ -1,18 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/../lib/stubbing'
 
-describe "A consumer of a stub" do
-  it "should be able to stub methods on any Object" do
-    obj = Object.new
-    obj.stub!(:foobar).and_return {:return_value}
-    obj.foobar.should equal(:return_value)
-  end
-end
-
-class StubbableClass
-  def self.find id
-    return :original_return
-  end
-end
 
 describe "A stubbed method on a class" do
   it "should return the stubbed value" do
