@@ -1,25 +1,25 @@
-# 
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
- 
-
 require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
+require 'spec/rake/spectask'
 
-begin
-  require 'spec'
-rescue LoadError
-  require 'rubygems'
-  require 'spec'
+desc "clean"
+task :clean do
+  FileUtils.remove_dir('target') if File.exists?('target')
+  Dir.mkdir('target')
 end
-begin
-  require 'spec/rake/spectask'
-rescue LoadError
-  puts <<-EOS
-To use rspec for testing you must install rspec gem:
-    gem install rspec
-EOS
-  exit(0)
+
+desc "compile java"
+task :compile_java do
+  puts `javac -d ./target ./libjava/**/*.java`
+  exit 1 if $? != 0
+  puts `cd target && jar -cf rspecjava.jar *`
+  exit 1 if $? != 0
 end
+
+Spec::Rake::SpecTask.new(:spec) do |t|
+  t.spec_files = FileList['spec/*_spec.rb']
+end
+
+task :all => [:clean, :compile_java, :spec]
+
+task :default  => :all
 

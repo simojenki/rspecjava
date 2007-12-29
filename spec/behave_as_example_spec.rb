@@ -1,5 +1,8 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require File.dirname(__FILE__) + '/../lib/behave_as'
+
+BluesGuitarist = Java::behaveAsExample.BluesGuitarist
+RockGuitarist = Java::behaveAsExample.RockGuitarist
+ClassicGuitarist = Java::behaveAsExample.ClassicGuitarist
 
 def behave_as_electric_musician
   respond_to(:read_notes, :turn_down_amp)

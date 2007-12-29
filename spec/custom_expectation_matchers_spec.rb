@@ -1,4 +1,6 @@
-require File.dirname(__FILE__) + '/../lib/custom_expectation'
+require File.dirname(__FILE__) + '/spec_helper'
+
+Mouse=Java::animals.Mouse
 
 module AnimalSpecHelper
   class Eat
@@ -8,7 +10,7 @@ module AnimalSpecHelper
     
     def matches?(animal)
       @animal = animal
-      @animal.eats?(@food)
+      @animal.eats(@food)
     end
     
     def failure_message
@@ -30,15 +32,15 @@ module Animals
   describe Mouse do
     include AnimalSpecHelper
     before(:each) do
-      @mouse = Animals::Mouse.new
+      @mouse = Mouse.new
     end
   
     it "should eat cheese" do
-      @mouse.should eat(:cheese)
+      @mouse.should eat('cheese')
     end
   
     it "should not eat cat" do
-      @mouse.should_not eat(:cat)
+      @mouse.should_not eat('cat')
     end
   end
 
