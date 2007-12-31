@@ -1,9 +1,12 @@
 package behaveAsExample;
 
-public class BluesGuitarist {
-	public void readNotes() {
+public class BluesGuitarist
+{
+	public void readNotes()
+	{
 	}
 
-	public void turnDownAmp() {
+	public void turnDownAmp()
+	{
 	}
 }

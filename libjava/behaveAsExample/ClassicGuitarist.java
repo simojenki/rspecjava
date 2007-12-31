@@ -1,6 +1,8 @@
 package behaveAsExample;
 
-public class ClassicGuitarist {
-	public void readNotes() {
+public class ClassicGuitarist
+{
+	public void readNotes()
+	{
 	}
 }

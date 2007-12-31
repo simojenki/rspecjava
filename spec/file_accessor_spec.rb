@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require File.dirname(__FILE__) + '/../lib/file_accessor'
 require 'stringio'
+
+FileAccessor=Java::fileaccessor.FileAccessor
 
 describe "A FileAccessor" do
   # This sequence diagram illustrates what this spec specifies.
@@ -29,7 +30,7 @@ describe "A FileAccessor" do
     io_processor = mock "IoProcessor"
     
     io = StringIO.new "whatever"
-    file.should_receive(:open).and_yield io
+    file.should_receive(:open).and_return io
     io_processor.should_receive(:process).with(io)
     
     accessor.open_and_handle_with(file, io_processor)

@@ -1,7 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-Mouse=Java::animals.Mouse
-
 module AnimalSpecHelper
   class Eat
     def initialize(food)
@@ -26,6 +24,8 @@ module AnimalSpecHelper
     Eat.new(food)
   end
 end
+
+Mouse=Java::animals.Mouse
 
 module Animals
 
