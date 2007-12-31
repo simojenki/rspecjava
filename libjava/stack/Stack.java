@@ -44,6 +44,5 @@ public class Stack
 	{
 		return items.size() == 10;
 	}
-	
 }
 

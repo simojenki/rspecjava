@@ -12,7 +12,7 @@ describe Stack, " (empty)" do
   end
   
   # NOTE that this one auto-generates the description "should be empty"
-  it { pending { @stack.should be_empty }}
+  it { @stack.should be_empty }
   
   it_should_behave_like "non-full Stack"
   
@@ -56,7 +56,7 @@ describe Stack, " (full)" do
   end
 
   # NOTE that this one auto-generates the description "should be full"
-  it { pending { @stack.should be_full } }  
+  it { @stack.should be_full }  
 
   it_should_behave_like "non-empty Stack"
 

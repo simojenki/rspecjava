@@ -1,8 +1,6 @@
-require File.join(File.dirname(__FILE__), '..', 'spec_helper')
-
 shared_examples_for "non-empty Stack" do
 
-  it { pending{ @stack.should_not be_empty } }
+  it { @stack.should_not be_empty }
   
   it "should return the top item when sent #peek" do
     @stack.peek.should == @last_item_added
@@ -18,11 +16,10 @@ shared_examples_for "non-empty Stack" do
   end
   
   it "should remove the top item when sent #pop" do
-    pending do
-      @stack.pop.should == @last_item_added
-      unless @stack.empty?
-        @stack.pop.should_not == @last_item_added
-      end
+    @stack.pop.should == @last_item_added
+    # java objects still cannot respond with empty?
+    unless @stack.empty
+      @stack.pop.should_not == @last_item_added
     end
   end
   
@@ -30,7 +27,7 @@ end
 
 shared_examples_for "non-full Stack" do
 
-  it { pending { @stack.should_not be_full  } }
+  it { @stack.should_not be_full  }
 
   it "should add to the top when sent #push" do
     @stack.push "newly added top item"

@@ -6,7 +6,7 @@ public class BddFramework
 	{
 		return true;
 	}
-	
+
 	public boolean adoptedQuickly()
 	{
 		return true;

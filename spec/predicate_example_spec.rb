@@ -2,19 +2,7 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 BddFramework=Java::predicate.BddFramework
 
-class Spec::Matchers::Be
-  
-  alias pre_jruby_predicate predicate 
-  
-  def predicate
-    rspec_predicate = pre_jruby_predicate
-    return rspec_predicate if @actual.respond_to? rspec_predicate
-    return "#{@expected.to_s}".to_sym
-  end
-end
-
-
-describe "BDD framework" do
+describe "BDD framework workaround by monkey patching rspec" do
 
   before(:each) do
     @bdd_framework = BddFramework.new
@@ -28,6 +16,7 @@ describe "BDD framework" do
     @bdd_framework.should be_intuitive  
   end
 end
+
 
 describe "BDD framework workaround using different matcher" do
 
@@ -43,6 +32,7 @@ describe "BDD framework workaround using different matcher" do
     @bdd_framework.intuitive.should be_true 
   end
 end
+
 
 
 
