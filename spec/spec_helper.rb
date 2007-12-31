@@ -21,7 +21,7 @@ module Kernel
     alias orig_raise raise
     
     def raise *args
-      Java::rspecj.extensions.kernel.RaiseJavaException.raise(args[0]) if (args.length == 1 && args[0].respond_to?(:java_object))
+      Java::rspecjava.extensions.kernel.RaiseJavaException.raise(args[0]) if (args.length == 1 && args[0].respond_to?(:java_object))
       orig_raise *args
     end
   end

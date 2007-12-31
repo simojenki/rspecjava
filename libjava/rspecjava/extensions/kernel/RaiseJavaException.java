@@ -1,4 +1,4 @@
-package rspecj.extensions.kernel;
+package rspecjava.extensions.kernel;
 
 public class RaiseJavaException
 {
