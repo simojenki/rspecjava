@@ -35,5 +35,23 @@ describe "A FileAccessor" do
     
     accessor.open_and_handle_with(file, io_processor)
   end
+  
+  it "should supress exceptions thrown by the io" do
+    pending do
+      # This is the primary actor
+      accessor = FileAccessor.new
+  
+      # These are the primary actor's neighbours, which we mock.
+      io = StringIO.new "whatever"
+      file = stub("Pathname", :open => io)
+      io_processor = mock "IoProcessor"
+      
+      
+      file.should_receive(:open).and_return io
+      io_processor.should_receive(:process).with(io).and_raise(Java::java.lang.RuntimeException)
+      
+      accessor.open_and_handle_with(file, io_processor)
+    end
+  end
 
 end

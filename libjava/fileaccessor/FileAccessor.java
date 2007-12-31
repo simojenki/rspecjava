@@ -7,4 +7,6 @@ public class FileAccessor
 		Object io = pathname.open();
 		processor.process(io);
 	}
+	
+	
 }
