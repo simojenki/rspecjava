@@ -10,6 +10,7 @@ end
 desc "compile java"
 task :compile_java do
   puts `javac -d ./target ./libjava/**/*.java`
+  puts `javac -d ./target ./libjava/rspecj/extensions/kernel/*.java`
   exit 1 if $? != 0
   puts `cd target && jar -cf rspecjava.jar *`
   exit 1 if $? != 0
