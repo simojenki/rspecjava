@@ -52,9 +52,14 @@ describe "A FileAccessor accessing an io that fails" do
       @file.should_receive(:open).and_return @io
   end
   
-  it "should not catch exceptions thrown by io when the mock is raising an instance" do
-      @io_processor.should_receive(:process).with(@io).and_raise(java.lang.RuntimeException.new('test exception instance'))
-      lambda { @accessor.open_and_handle_with(@file, @io_processor) }.should raise_error(java.lang.RuntimeException, /test exception instance/)
+  it "should not catch runtime exceptions thrown by io when the mock is raising an instance" do
+      @io_processor.should_receive(:process).with(@io).and_raise(java.lang.RuntimeException.new('test runtime exception instance'))
+      lambda { @accessor.open_and_handle_with(@file, @io_processor) }.should raise_error(java.lang.RuntimeException, /test runtime exception instance/)
+  end
+
+  it "should not catch checked exceptions thrown by io when the mock is raising an instance" do
+      @io_processor.should_receive(:process).with(@io).and_raise(java.lang.Exception.new('test checked exception instance'))
+      lambda { @accessor.open_and_handle_with(@file, @io_processor) }.should raise_error(java.lang.Exception, /test checked exception instance/)
   end
 
   it "should not catch exceptions thrown by io when the mock is raising a string" do
