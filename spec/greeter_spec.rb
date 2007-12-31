@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require File.dirname(__FILE__) + '/../lib/greeter'
 
 # greeter.rb
 #
@@ -9,6 +8,8 @@ require File.dirname(__FILE__) + '/../lib/greeter'
 #
 #   spec greeter_spec.rb --heckle Greeter
 #
+
+Greeter=Java::greeter.Greeter
 
 describe "Greeter" do
   it "should say Hi to person" do

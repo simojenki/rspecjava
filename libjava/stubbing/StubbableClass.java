@@ -6,5 +6,10 @@ public class StubbableClass
 	{
 		return "original_return";
 	}
+	
+	public static String msg(String arg)
+	{
+		return "original_msg_return_" + arg;
+	}
 }
 
